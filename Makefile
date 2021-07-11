@@ -1,4 +1,4 @@
-obj-m += helloworld_rpi.o helloworld_with_parameters.o
+obj-m += helloworld_rpi.o helloworld_with_parameters.o helloworld_with_timing.o
 
 KERNEL_DIR ?= $(PWD)/../linux
 TOOLS_DIR ?= $(PWD)/../tools
