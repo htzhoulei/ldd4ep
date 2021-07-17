@@ -1,8 +1,9 @@
-obj-m += helloworld_rpi.o helloworld_with_parameters.o helloworld_with_timing.o
+obj-m += helloworld_rpi.o helloworld_with_parameters.o helloworld_with_timing.o helloworld_char_driver.o hello_world_class_driver.o \
+		misc_driver.o hellokeys.o
 
 SHELL=/bin/bash
-KERNEL_DIR ?= $(PWD)/../linux
-TOOLS_DIR ?= $(PWD)/../tools
+KERNEL_DIR ?= $(PWD)/../../linux
+TOOLS_DIR ?= $(PWD)/../../tools
 
 TMP_PATH:=$(TOOLS_DIR)/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin:$(PATH)
 
