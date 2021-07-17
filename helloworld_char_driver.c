@@ -4,7 +4,7 @@
 #include <linux/cdev.h>
 #include <linux/fs.h>
 
-/* define major number */
+/* 定义主设备号 */
 #define MY_MAJOR_NUM 202
 
 static struct cdev my_dev;
@@ -27,7 +27,7 @@ static long my_dev_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
     return 0;
 }
 
-/* declare a file_oprations structure */
+/* 定义文件操作数据结构 */
 static const struct file_operations my_dev_fops = {
     .owner = THIS_MODULE,
     .open = my_dev_open,
@@ -38,18 +38,18 @@ static const struct file_operations my_dev_fops = {
 static int __init hello_init(void)
 {
     int ret;
-    /* Get first device identifier */
+    /* 获取设备ID */
     dev_t dev = MKDEV(MY_MAJOR_NUM, 0);
     pr_info("Hello world init\n");
 
-    /* Allocate device numbers */
+    /* 分配设备号 */
     ret = register_chrdev_region(dev, 1, "my_char_device");
     if (ret < 0) {
         pr_info("Unable to allocate major munber %d\n", MY_MAJOR_NUM);
         return ret;
     }
 
-    /* Initialize the cdev structure and add it to kernel space */
+    /* 初始化cdev数据结构，并添加到内核空间 */
     cdev_init(&my_dev, &my_dev_fops);
     ret = cdev_add(&my_dev, dev, 1);
     if (ret < 0) {
