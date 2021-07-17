@@ -38,5 +38,4 @@ module_exit(first_exit);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Zhoulei");
-MODULE_DESCRIPTION("This is a module that will print the time \
-                    since ti was loaded");
+MODULE_DESCRIPTION("This is a module that will print the time since ti was loaded");
